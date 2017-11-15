@@ -1,4 +1,4 @@
-require "caesar_cipher"
+require_relative "caesar_cipher"
 
 describe "#caesar_cipher" do
   context "with upper case" do
@@ -10,7 +10,7 @@ describe "#caesar_cipher" do
   context "without letters" do
     it "returns the same input" do
       expect(caesar_cipher(" !", 5)).to eql(" !")
-      expect(caesar_cipher(" ", 5)).to eql(" !")
+      expect(caesar_cipher(" ", 5)).to eql(" ")
     end
   end
 
@@ -28,7 +28,7 @@ describe "#caesar_cipher" do
 
   context "when you want to play around" do
     it "returns the same input when called 2 times with 13" do
-      expect(caesar_cipher(caesar_cipher("Yaay!", 13), 13).to eql("Yaay!")
+      expect(caesar_cipher(caesar_cipher("Yaay!", 13), 13)).to eql("Yaay!")
     end
   end
 end
