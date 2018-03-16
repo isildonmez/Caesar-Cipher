@@ -1,4 +1,6 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
+set :root, 'lib/app'
 
 def caesar_cipher(string, factor)
   string.split("").map {|letter|
@@ -15,7 +17,7 @@ def caesar_cipher(string, factor)
       end
     end
     ascii_code.chr
-    }.join
+  }.join
 end
 
 get '/' do
