@@ -1,4 +1,4 @@
-require_relative "caesar_cipher"
+require_relative "../caesar_cipher"
 
 describe "#caesar_cipher" do
   context "with upper case" do

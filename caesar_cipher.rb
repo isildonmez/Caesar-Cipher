@@ -1,3 +1,5 @@
+require 'sinatra'
+
 def caesar_cipher(string, factor)
   string.split("").map {|letter|
     ascii_code = letter.ord
@@ -16,16 +18,12 @@ def caesar_cipher(string, factor)
     }.join
 end
 
-
-puts caesar_cipher("What a string", 5)
-puts caesar_cipher(" !", 5)
-puts caesar_cipher("W!", 0)
-puts caesar_cipher("What a string!", 57)
-puts caesar_cipher(caesar_cipher("Yaay!", 13), 13)
-
-# Bmfy f xywnsl
-#  !
-# W!
-# Bmfy f xywnsl!
-# Yaay!
-
+get '/' do
+  string = params["original_text"]
+  factor = params["factor"].to_i
+  code = ""
+  if string && factor
+    code = caesar_cipher(string, factor)
+  end
+  erb :index, :locals => {:code => code}
+end
