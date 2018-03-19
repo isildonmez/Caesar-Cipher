@@ -1,3 +1,3 @@
-require 'lib/app.rb'
+require 'lib/app'
 
 run Sinatra::Application
